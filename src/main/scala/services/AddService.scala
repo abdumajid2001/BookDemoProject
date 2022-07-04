@@ -9,6 +9,7 @@ import setting.Setting
 import utils.Utils
 
 import javax.servlet.http.{HttpServletRequest, HttpServletResponse}
+import scala.io.{Codec, Source}
 
 class AddService {
   def add(setting: Setting, req: HttpServletRequest, resp: HttpServletResponse): Unit = {
@@ -19,9 +20,8 @@ class AddService {
 
     var conn = DBConnection.getPoolConnection
     var cs: OraclePreparedStatement = null
-    val mapper = new ObjectMapper()
-    mapper.registerModule(DefaultScalaModule)
-    var book = mapper.readValue(req.getReader, classOf[Book])
+    var body = StringBuilder
+   var book = Utils.mapper().readValue(Source.fromInputStream(req.getInputStream)(Codec.UTF8).mkString, classOf[Book])
     println(book)
 
 
