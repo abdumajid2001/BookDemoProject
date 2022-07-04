@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="BookDemoProject:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/BookDemoProject_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="BookDemoProject/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="BookDemoProject" />
+          <element id="module-output" name="BookDemoProject-build" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="sbt: org.scala-lang:scala-library:2.13.8:jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
