@@ -18,15 +18,59 @@
         <listener-class>listener.MyContextListener</listener-class>
     </listener>
 
-
     <servlet>
         <servlet-name>add</servlet-name>
         <servlet-class>route.AddRoute</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>add</servlet-name>
         <url-pattern>/add</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>delete</servlet-name>
+        <servlet-class>route.DeleteRoute</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>delete</servlet-name>
+        <url-pattern>/delete/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>update</servlet-name>
+        <servlet-class>route.UpdateRoute</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>update</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getAll</servlet-name>
+        <servlet-class>route.GelAllRoute</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getAll</servlet-name>
+        <url-pattern>/getAll</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>dowload</servlet-name>
+        <servlet-class>route.DowloadRoute</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dowload</servlet-name>
+        <url-pattern>/dowload/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>email</servlet-name>
+        <servlet-class>route.EmailRoute</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>email</servlet-name>
+        <url-pattern>/email</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

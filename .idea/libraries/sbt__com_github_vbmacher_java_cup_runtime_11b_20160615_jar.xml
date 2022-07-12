@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="sbt: com.github.vbmacher:java-cup-runtime:11b-20160615:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.github.vbmacher/java-cup-runtime/jars/java-cup-runtime-11b-20160615.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.cache/coursier/v1/https/repo1.maven.org/maven2/com/github/vbmacher/java-cup-runtime/11b-20160615/java-cup-runtime-11b-20160615-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.github.vbmacher/java-cup-runtime/srcs/java-cup-runtime-11b-20160615-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

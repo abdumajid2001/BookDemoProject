@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="sbt: com.github.jsimone:webapp-runner:9.0.27.1:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.github.jsimone/webapp-runner/jars/webapp-runner-9.0.27.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.cache/coursier/v1/https/repo1.maven.org/maven2/com/github/jsimone/webapp-runner/9.0.27.1/webapp-runner-9.0.27.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.github.jsimone/webapp-runner/srcs/webapp-runner-9.0.27.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -2,28 +2,18 @@ package route
 
 
 import services.AddService
-import setting.Setting
+import utils.Utils
 
-import javax.servlet.ServletConfig
+import javax.servlet.annotation.MultipartConfig
 import javax.servlet.http.{HttpServlet, HttpServletRequest, HttpServletResponse}
 
+@MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)
 class AddRoute extends HttpServlet {
-  private var setting: Option[Setting] = null
-
-  override def init(config: ServletConfig): Unit = {
-    setting = Option(config.getServletContext.getAttribute("setting").asInstanceOf[Setting])
-  }
-
-  def getSetting(): Setting = {
-    setting match {
-      case Some(s) => s
-      case None => throw new RuntimeException("Biruni setting is not found")
-    }
-  }
 
   override def doPost(req: HttpServletRequest, resp: HttpServletResponse): Unit = {
-    var addService = new AddService
-    addService.add(getSetting(), req, resp);
+    if (Utils.isValidAuthKey(req, resp, getServletContext)) {
+      new AddService().add(getServletContext, req, resp)
+    }
   }
 
 }

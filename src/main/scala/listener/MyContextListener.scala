@@ -1,12 +1,10 @@
 package listener
 
 import connection.{ConnectionProperties, DBConnection}
-import setting.Setting
 
-import java.io.{File, FileInputStream, FileOutputStream, Reader}
+import java.io.{File, FileInputStream}
 import java.nio.file.Paths
 import java.util.{Locale, Properties}
-import javax.servlet.annotation.WebListener
 import javax.servlet.{ServletContext, ServletContextEvent, ServletContextListener}
 import scala.util.control.ControlThrowable
 
@@ -22,40 +20,24 @@ class MyContextListener extends ServletContextListener {
       var settingPath = getSettingPath(context, contextPath)
 
       val property = loadProperties(settingPath, contextPath)
-
-      var setting: Setting = Setting(
-        contextPath = "",
-        settingPath = property("settingPath").asInstanceOf[String],
-        authKey = context.getInitParameter("auth_key"),
-        maxUploadSize = property("maxUploadSize").asInstanceOf[Option[Long]],
-        filesPath = property("filesPath").asInstanceOf[String]
-      )
+      var filesPath = property("filesPath").asInstanceOf[String]
 
       val connectionProperties: ConnectionProperties = new ConnectionProperties(
         property("url").asInstanceOf[String],
         property("username").asInstanceOf[String],
-        property("password").asInstanceOf[String],
-        property("inactiveConnectionTimeout").asInstanceOf[String],
-        property("maxConnectionReuse").asInstanceOf[String],
-        property("initialPoolSize").asInstanceOf[String],
-        property("minPoolSize").asInstanceOf[String],
-        property("maxPoolSize").asInstanceOf[String]
+        property("password").asInstanceOf[String]
       )
 
       DBConnection.Init(connectionProperties);
 
       val sep = File.separator
 
-      if (setting.filesPath.isEmpty)
-        setting = setting.copy(filesPath = settingPath + sep + contextPath + sep + "files" + sep)
+      if (filesPath.isEmpty)
+        filesPath = settingPath + sep + contextPath + sep + "files" + sep
 
-      ensureFolderExists(setting.filesPath)
+      ensureFolderExists(filesPath)
 
-      setting = setting.copy(contextPath = contextPath)
-
-      printSetting(setting)
-
-      context.setAttribute("setting", setting)
+      context.setAttribute("filesPath", filesPath)
     }
     catch {
       case ex: ControlThrowable => throw ex
@@ -73,7 +55,7 @@ class MyContextListener extends ServletContextListener {
 
   private def loadProperties(file: File): Map[String, Any] = {
 
-    var property = new Properties()
+    val property = new Properties()
     property.load(new FileInputStream(file))
 
     def k(key: String): String = {
@@ -82,16 +64,10 @@ class MyContextListener extends ServletContextListener {
 
     Map(
       "settingPath" -> file.getAbsolutePath,
-      "maxUploadSize" -> Option(k("max_upload_size")).filter(_.trim.nonEmpty).map(_.toLong),
       "filesPath" -> formatFolderPath(k("files_path")),
       "url" -> k("db.url"),
       "username" -> k("db.username"),
-      "password" -> k("db.password"),
-      "inactiveConnectionTimeout" -> k("db.inactiveConnectionTimeout"),
-      "maxConnectionReuse" -> k("db.maxConnectionReuse"),
-      "initialPoolSize" -> k("db.initialPoolSize"),
-      "minPoolSize" -> k("db.minPoolSize"),
-      "maxPoolSize" -> k("db.maxPoolSize")
+      "password" -> k("db.password")
     )
 
   }
@@ -99,15 +75,6 @@ class MyContextListener extends ServletContextListener {
   private def formatFolderPath(path: String): String =
     if (path.isEmpty || path.endsWith("/")) path
     else path + "/"
-
-  private def printSetting(s: Setting): Unit = {
-    println("*" * 70)
-    println(s"Context path:${s.contextPath}")
-    println(s"Setting path:${s.settingPath}")
-    println(s"Files path  :${s.filesPath}")
-    println("*" * 70)
-
-  }
 
 
   def getSettingPath(context: ServletContext, contextPath: String): String = {

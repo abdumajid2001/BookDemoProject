@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="sbt: io.dropwizard.metrics:metrics-logback:3.1.5:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/io.dropwizard.metrics/metrics-logback/bundles/metrics-logback-3.1.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.cache/coursier/v1/https/repo1.maven.org/maven2/io/dropwizard/metrics/metrics-logback/3.1.5/metrics-logback-3.1.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/io.dropwizard.metrics/metrics-logback/srcs/metrics-logback-3.1.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

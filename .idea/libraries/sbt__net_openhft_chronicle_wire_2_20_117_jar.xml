@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="sbt: net.openhft:chronicle-wire:2.20.117:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/net.openhft/chronicle-wire/bundles/chronicle-wire-2.20.117.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.cache/coursier/v1/https/repo1.maven.org/maven2/net/openhft/chronicle-wire/2.20.117/chronicle-wire-2.20.117-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/net.openhft/chronicle-wire/srcs/chronicle-wire-2.20.117-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="sbt: net.openhft:chronicle-threads:2.20.111:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/net.openhft/chronicle-threads/bundles/chronicle-threads-2.20.111.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.cache/coursier/v1/https/repo1.maven.org/maven2/net/openhft/chronicle-threads/2.20.111/chronicle-threads-2.20.111-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/net.openhft/chronicle-threads/srcs/chronicle-threads-2.20.111-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
